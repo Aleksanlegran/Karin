@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <?php header('Content-Type: text/html; charset=UTF-8'); ?>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дизайнер коммерческой недвижимости | Карина Таховеева</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://optim.tildacdn.com/tild3837-6361-4835-b162-376435366262/-/resize/409x/-/format/webp/DSC_7077.jpg.webp');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .nav-link:hover {
+            color: #f59e0b;
+        }
+        
+        .portfolio-item {
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .before-after {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .before-after .before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .slider-handle {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: white;
+            cursor: ew-resize;
+            transform: translateX(-50%);
+        }
+        
+        .slider-handle::after {
+            content: "";
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-gray-800">Карина Таховеева</a>
+            
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Desktop menu -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#main" class="nav-link text-gray-700 hover:text-amber-500">Главная</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-amber-500">О нас</a>
+                <a href="#portfolio" class="nav-link text-gray-700 hover:text-amber-500">Портфолио</a>
+                <a href="#services" class="nav-link text-gray-700 hover:text-amber-500">Услуги и цены</a>
+                <a href="#reviews" class="nav-link text-gray-700 hover:text-amber-500">Отзывы</a>
+                <a href="#contact" class="nav-link text-gray-700 hover:text-amber-500">Контакты</a>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4">
+            <a href="#main" class="block py-2 text-gray-700 hover:text-amber-500">Главная</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-amber-500">О нас</a>
+            <a href="#portfolio" class="block py-2 text-gray-700 hover:text-amber-500">Портфолио</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-amber-500">Услуги и цены</a>
+            <a href="#reviews" class="block py-2 text-gray-700 hover:text-amber-500">Отзывы</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-amber-500">Контакты</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="main" class="hero-section text-white py-20 md:py-32">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Хоумстейджинг и комплектация недвижимости под <span class="text-amber-400">продажу</span> и <span class="text-amber-400">аренду</span></h1>
+                <p class="text-xl mb-8">Создаем интерьеры, которые покупают</p>
+                <a href="#consultation" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded inline-block transition duration-300">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://optim.tildacdn.com/tild3837-6361-4835-b162-376435366262/-/resize/409x/-/format/webp/DSC_7077.jpg.webp" alt="Александра Писаревич" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 text-gray-800">Меня зовут Карина Таховеева</h2>
+                    <p class="text-gray-700 mb-4">Я дизайнер коммерческой недвижимости, хоумстейджер, декоратор.</p>
+                    <p class="text-gray-700 mb-4">Мы с командой занимаемся подготовкой объектов к продаже и посуточной / долгосрочной аренде.</p>
+                    <p class="text-gray-700 mb-6">Превращаем неактуальный грустный интерьер во "вкусное" и комфортное пространство, которое выделяется среди других объявлений, привлекает заказчиков и повышает Ваш доход.</p>
+                    <p class="text-gray-700 mb-6">Другими словами, улучшаем внешний вид и удобство объекта для того, чтобы Вы смогли продать или сдать его в аренду в кротчайшие сроки по лучшей цене.</p>
+                    <p class="text-gray-700 font-semibold">Подготовка объекта займет от 2 до 6 недель. Да-да. Без длительного ремонта и огромных вложений интерьер заиграет совершенно по-новому и увеличится в цене.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800">Стоимость объекта возрастает до 35%</h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Улучшение эстетических и функциональных качеств жилья выделяет Ваше предложение на фоне конкурентов и повышает ликвидность объекта.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Без дорогостоящего ремонта</h3>
+                    <p class="text-gray-700">Хоумстейджинг не требует серьезных изменений пространства. Мы преобразовываем интерьер, меняя только самое необходимое.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">ЗА 2-4 недели</h3>
+                    <p class="text-gray-700">В зависимости от объема работ и сложности объекта хоумстейджинг занимает от 2 до 4 недель. Поэтому выставить свое предложение и получить доход с недвижимости Вы сможете уже в самое ближайшее время.</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                    <div class="text-amber-500 text-4xl mb-4">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">В рамках вашего бюджета</h3>
+                    <p class="text-gray-700">На предварительном звонке мы обсудим объем вложений на подготовку недвижимости к сдаче / продаже. Во время работы я опираюсь на согласованный бюджет.</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#portfolio" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded inline-block transition duration-300">СМОТРЕТЬ ПРОЕКТЫ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Результаты нашей работы</h2>
+            
+            <div class="before-after relative h-96 w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg">
+                <div class="before absolute top-0 left-0 w-full h-full">
+                    <img src="https://thb.tildacdn.com/tild3866-3364-4434-b866-653331313537/-/resize/20x/DSC_0172.jpg" alt="До" class="w-full h-full object-cover">
+                </div>
+                <img src="https://optim.tildacdn.com/tild3362-3165-4439-b133-353462663433/-/format/webp/DSC_7037.jpg.webp" alt="После" class="w-full h-full object-cover">
+                <div class="slider-handle"></div>
+            </div>
+            
+            <div class="flex justify-between mt-4 max-w-4xl mx-auto">
+                <span class="font-bold">БЫЛО</span>
+                <span class="font-bold">СТАЛО</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Портфолио</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://optim.tildacdn.com/tild3362-3165-4439-b133-353462663433/-/format/webp/DSC_7037.jpg.webp" alt="Комплектация евро-5 95 кв.м." class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Комплектация евро-5 95 кв.м. в ЖК Символ</h3>
+                        <p class="text-gray-700 mb-4">Для сдачи в аренду</p>
+                        <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold">Открыть проект →</a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://optim.tildacdn.com/tild3037-3866-4334-b064-346535356362/-/format/webp/noroot.png.webp" alt="Редизайн 2-х комнатной квартиры" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Редизайн 2-х комнатной квартиры 80 кв.м.</h3>
+                        <p class="text-gray-700 mb-4">Под аренду</p>
+                        <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold">Открыть проект →</a>
+                    </div>
+                </div>
+                
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item bg-white rounded-lg overflow-hidden shadow-md">
+                    <img src="https://optim.tildacdn.com/tild3362-3165-4439-b133-353462663433/-/format/webp/DSC_7037.jpg.webp" alt="Комплектация евродвушки" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Комплектация евродвушки 35,6 кв.м.</h3>
+                        <p class="text-gray-700 mb-4">В ЖК Ильинские Луга для сдачи в аренду</p>
+                        <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold">Открыть проект →</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded inline-block transition duration-300">ВСЕ ПРОЕКТЫ</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Услуги и цены</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Комплектация интерьера</h3>
+                    <p class="text-gray-700 mb-4">Обустройство квартиры с ремонтом от застройщика для аренды и продажи. Меблировка, подбор техники и освещения, а также наполнение интерьера текстилем и предметами декора.</p>
+                    <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold">Подробнее →</a>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Хоумстейджинг</h3>
+                    <p class="text-gray-700 mb-4">Упаковка недвижимости для сдачи в аренду и продажи. Стилизуем готовый интерьер, чтобы повысить привлекательность объекта для быстрой и выгодной сделки.</p>
+                    <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold">Подробнее →</a>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Редизайн</h3>
+                    <p class="text-gray-700 mb-4">Обновление интерьера для выгодной сдачи/продажи недвижимости. Преображаем неактуальный интерьер с помощью косметического ремонта.</p>
+                    <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold">Подробнее →</a>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Консультация</h3>
+                    <p class="text-gray-700 mb-4">Консультация по подготовке объекта недвижимости к продаже и сдаче в аренду. Услуга поможет избежать распространенных ошибок при подготовке квартиры.</p>
+                    <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold">Подробнее →</a>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-gray-50 p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-bold mb-4">Готовые интерьерные решения</h3>
+                    <p class="text-gray-700 mb-4">Адаптируем готовый проект для типовых квартир от ПИК, А101, самолет под Вашу планировку за 4 дня.</p>
+                    <span class="block bg-amber-100 text-amber-800 text-sm font-semibold px-2 py-1 rounded mb-4 inline-block">скидкой 35%</span>
+                    <a href="#" class="text-amber-500 hover:text-amber-600 font-semibold">Подробнее →</a>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-gray-700 mb-6">Узнайте, сколько стоит подготовить Ваш объект для аренды или продажи! консультация <strong>бесплатная</strong>.</p>
+                <p class="text-xl font-bold mb-6">Оставьте заявку. Мы свяжемся с вами!</p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="#consultation" class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded inline-block transition duration-300">БЕСПЛАТНАЯ КОНСУЛЬТАЦИЯ</a>
+                    <a href="#quiz" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 px-6 rounded inline-block transition duration-300">РАСЧЕТ СТОИМОСТИ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">Отзывы</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Александра помогла подготовить квартиру к продаже. После ее работы квартира продалась за 2 недели по цене выше рыночной. Очень доволен результатом!"</p>
+                    <p class="font-semibold">— Иван Петров</p>
+                </div>
+                
+                <!-- Review 2 -->
+                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"Отличный сервис! Квартиру сдали в аренду через 3 дня после завершения работ. Арендаторы в восторге от интерьера. Спасибо команде!"</p>
+                    <p class="font-semibold">— Елена Смирнова</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Form -->
+    <section id="consultation" class="py-16 bg-amber-500 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto bg-white text-gray-800 rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">ПОЛУЧИТЕ БЕСПЛАТНУЮ КОНСУЛЬТАЦИЮ.</h2>
+                <p class="mb-6">УЗНАЙТЕ СТОИМОСТЬ УСЛУГ И ОБЪЕМ ВЛОЖЕНИЙ</p>
+                
+                <form id="consultation-form">
+                    <div class="mb-4">
+                        <label for="name" class="block text-gray-700 font-bold mb-2">Как Вас зовут?</label>
+                        <input type="text" id="name" class="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:border-amber-500">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="phone" class="block text-gray-700 font-bold mb-2">Ваш телефон</label>
+                        <div class="flex">
+                            <span class="inline-flex items-center px-3 rounded-l border border-r-0 border-gray-300 bg-gray-100 text-gray-600">+7</span>
+                            <input type="tel" id="phone" class="w-full px-3 py-2 border border-gray-300 rounded-r focus:outline-none focus:border-amber-500">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded transition duration-300">ОТПРАВИТЬ</button>
+                    
+                    <p class="text-sm text-gray-600 mt-4">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#" class="text-amber-500 hover:underline">политикой конфиденциальности</a></p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto bg-gray-50 rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold mb-6">Какие задачи стоят перед объектом недвижимости?</h2>
+                
+                <div class="mb-8">
+                    <div class="flex items-center mb-2">
+                        <input type="checkbox" id="rent" class="w-4 h-4 text-amber-500 border-gray-300 rounded focus:ring-amber-500">
+                        <label for="rent" class="ml-2 text-gray-700">Аренда</label>
+                    </div>
+                    
+                    <div class="flex items-center mb-2">
+                        <input type="checkbox" id="sale" class="w-4 h-4 text-amber-500 border-gray-300 rounded focus:ring-amber-500">
+                        <label for="sale" class="ml-2 text-gray-700">Продажа</label>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input type="checkbox" id="personal" class="w-4 h-4 text-amber-500 border-gray-300 rounded focus:ring-amber-500">
+                        <label for="personal" class="ml-2 text-gray-700">Преобразование для себя</label>
+                    </div>
+                </div>
+                
+                <h2 class="text-2xl font-bold mb-6">Какая площадь у объекта?</h2>
+                
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-2 mb-8">
+                    <button class="bg-gray-200 hover:bg-amber-500 hover:text-white text-gray-700 py-2 px-3 rounded text-sm transition duration-300">до 30 м2</button>
+                    <button class="bg-gray-200 hover:bg-amber-500 hover:text-white text-gray-700 py-2 px-3 rounded text-sm transition duration-300">от 30 до 50 м2</button>
+                    <button class="bg-gray-200 hover:bg-amber-500 hover:text-white text-gray-700 py-2 px-3 rounded text-sm transition duration-300">от 50 до 70 м2</button>
+                    <button class="bg-gray-200 hover:bg-amber-500 hover:text-white text-gray-700 py-2 px-3 rounded text-sm transition duration-300">от 70 до 100 м2</button>
+                    <button class="bg-gray-200 hover:bg-amber-500 hover:text-white text-gray-700 py-2 px-3 rounded text-sm transition duration-300">от 100м2</button>
+                </div>
+                
+                <div class="flex justify-between">
+                    <button class="text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+                        <i class="fas fa-arrow-left mr-2"></i> Назад
+                    </button>
+                    <button class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                        Дальше <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold mb-6">КОНТАКТЫ</h2>
+                    <p class="text-xl mb-6">СВЯЖИТЕСЬ С НАМИ</p>
+                    
+                    <div class="mb-6">
+                        <p class="text-xl font-bold mb-2">Александра Писаревич</p>
+                        <p class="mb-2"><i class="fas fa-phone-alt mr-2"></i> +7 916 548-21-49</p>
+                        <p><i class="fas fa-envelope mr-2"></i> <a href="mailto:karinatakhoveeva@yandex.ru" class="hover:text-amber-400">karinatakhoveeva@yandex.ru</a></p>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="mailto:karinatakhoveeva@yandex.ru" class="bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+79165482149" class="bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fas fa-mobile-alt"></i>
+                        </a>
+                        <a href="https://t.me/alexandra_pisarevich" class="bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-telegram-plane"></i>
+                        </a>
+                        <a href="https://wa.me/79165482149" class="bg-gray-700 hover:bg-gray-600 w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="https://t.me/interior_4rent" class="inline-flex items-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-300">
+                            <i class="fab fa-telegram-plane mr-2"></i> Присоединяйтесь в Telegram
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-gray-700 rounded-lg p-6">
+                        <h3 class="text-xl font-bold mb-4">Добрый день! Ваша заявка получена. В ближайшее рабочее время я вам позвоню. До связи!</h3>
+                        
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label for="contact-name" class="block text-gray-300 font-bold mb-2">Как Вас зовут?</label>
+                                <input type="text" id="contact-name" class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded focus:outline-none focus:border-amber-500 text-white">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="contact-phone" class="block text-gray-300 font-bold mb-2">Телефон</label>
+                                <div class="flex">
+                                    <span class="inline-flex items-center px-3 rounded-l border border-r-0 border-gray-600 bg-gray-600 text-gray-300">+7</span>
+                                    <input type="tel" id="contact-phone" class="w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-r focus:outline-none focus:border-amber-500 text-white">
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-amber-500 hover:bg-amber-600 text-white font-bold py-3 px-6 rounded transition duration-300">ОТПРАВИТЬ</button>
+                            
+                            <p class="text-sm text-gray-400 mt-4">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <a href="#" class="text-amber-400 hover:underline">политикой конфиденциальности</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <p>&copy; 2023 Карина Таховеева. Все права защищены.</p>
+                </div>
+                
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-amber-400">Политика конфиденциальности</a>
+                    <a href="#" class="hover:text-amber-400">Договор оферты</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Before/After slider
+        const beforeAfter = document.querySelector('.before-after');
+        if (beforeAfter) {
+            const before = beforeAfter.querySelector('.before');
+            const handle = beforeAfter.querySelector('.slider-handle');
+            
+            let isDragging = false;
+            
+            handle.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                document.addEventListener('mousemove', moveHandle);
+                document.addEventListener('mouseup', stopDrag);
+            });
+            
+            function moveHandle(e) {
+                if (!isDragging) return;
+                
+                const containerRect = beforeAfter.getBoundingClientRect();
+                let x = e.clientX - containerRect.left;
+                
+                // Keep within bounds
+                x = Math.max(0, Math.min(x, containerRect.width));
+                
+                const percent = (x / containerRect.width) * 100;
+                before.style.width = `${percent}%`;
+                handle.style.left = `${percent}%`;
+            }
+            
+            function stopDrag() {
+                isDragging = false;
+                document.removeEventListener('mousemove', moveHandle);
+                document.removeEventListener('mouseup', stopDrag);
+            }
+            
+            // Touch support
+            handle.addEventListener('touchstart', function(e) {
+                isDragging = true;
+                document.addEventListener('touchmove', moveHandleTouch);
+                document.addEventListener('touchend', stopDragTouch);
+            });
+            
+            function moveHandleTouch(e) {
+                if (!isDragging) return;
+                
+                const containerRect = beforeAfter.getBoundingClientRect();
+                let x = e.touches[0].clientX - containerRect.left;
+                
+                // Keep within bounds
+                x = Math.max(0, Math.min(x, containerRect.width));
+                
+                const percent = (x / containerRect.width) * 100;
+                before.style.width = `${percent}%`;
+                handle.style.left = `${percent}%`;
+            }
+            
+            function stopDragTouch() {
+                isDragging = false;
+                document.removeEventListener('touchmove', moveHandleTouch);
+                document.removeEventListener('touchend', stopDragTouch);
+            }
+        }
+
+        // Form submission
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Ваша заявка отправлена! Мы свяжемся с вами в ближайшее время.');
+                form.reset();
+            });
+        });
+
+        // Quiz buttons
+        const quizButtons = document.querySelectorAll('#quiz button');
+        quizButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                quizButtons.forEach(btn => btn.classList.remove('bg-amber-500', 'text-white'));
+                this.classList.add('bg-amber-500', 'text-white');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Aleksanlegran/designe" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
